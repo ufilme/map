@@ -18,10 +18,14 @@ var map = L.map('mapid').setView([lat, lon], 5);
 		var layer = new L.TileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png');
 map.addLayer(layer)
 var marker = L.marker([lat, lon]).addTo(map);
-   map.dragging.disable();
+map.dragging.disable();
+map.touchZoom.disable();
+map.doubleClickZoom.disable();
+map.scrollWheelZoom.disable();
 map.boxZoom.disable();
 map.keyboard.disable();
-
+if (map.tap) map.tap.disable();
+document.getElementById('map').style.cursor='default';
 </script>
  </html>
 	
